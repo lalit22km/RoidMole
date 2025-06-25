@@ -2,8 +2,10 @@ import subprocess
 import adbutils
 import time
 from colorama import Fore, Style, init
+from src import logger as log
 
 def adb_check():
+    log.log("ADB Check started")
     try:
         result = subprocess.run(
             ["adb", "--version"],
@@ -15,6 +17,7 @@ def adb_check():
         output = result.stdout.strip().splitlines()
 
         if len(output) >= 3:
+            log.log("ADB found on system")
             version = output[0].replace("Android Debug Bridge version", "").strip()
             build = output[1].strip()
             location = output[2].replace("Installed as", "").strip()
@@ -26,15 +29,19 @@ def adb_check():
             
         else:
             print("⚠️ ADB output is incomplete. Got:\n", result.stdout)
+            log.log(f"ERROR: ADB output is incomplete. Got:", result.stdout)
 
     except FileNotFoundError:
         print("❌ ADB is not installed or not in PATH. \nInstall ADB from https://developer.android.com/tools/releases/platform-tools")
+        log.log("ERROR: ADB is not installed on system or not in PATH")
         exit()
     except subprocess.CalledProcessError as e:
-        print("❌ ADB command failed !\nADB is installed but produces errors. Make sure ADB is updated.\nGet the latest binaries from https://developer.android.com/tools/releases/platform-tools")
+        print("❌ ADB command failed !\nADB is installed but produces error(s). Make sure ADB is updated.\nGet the latest binaries from https://developer.android.com/tools/releases/platform-tools")
+        log.log("ERROR: ADB might be installed but produces error(s).")
         exit()
 def device_check():
     adb = adbutils.AdbClient(host="127.0.0.1", port=5037)
+    log.log("Start listening on localhost:5037")
 
     while True:
         devices = adb.list(extended=True)
@@ -67,15 +74,16 @@ def print_gradient_raidmole():
     init(autoreset=True)
     
     ascii_art = """
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
     
-██████╗  ██████╗ ██╗██████╗ ███╗   ███╗ ██████╗ ██╗     ███████╗
-██╔══██╗██╔═══██╗██║██╔══██╗████╗ ████║██╔═══██╗██║     ██╔════╝
-██████╔╝██║   ██║██║██║  ██║██╔████╔██║██║   ██║██║     █████╗  
-██╔══██╗██║   ██║██║██║  ██║██║╚██╔╝██║██║   ██║██║     ██╔══╝  
-██║  ██║╚██████╔╝██║██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗███████╗
-╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+   ██████╗  ██████╗ ██╗██████╗ ███╗   ███╗ ██████╗ ██╗     ███████╗
+   ██╔══██╗██╔═══██╗██║██╔══██╗████╗ ████║██╔═══██╗██║     ██╔════╝
+   ██████╔╝██║   ██║██║██║  ██║██╔████╔██║██║   ██║██║     █████╗  
+   ██╔══██╗██║   ██║██║██║  ██║██║╚██╔╝██║██║   ██║██║     ██╔══╝  
+   ██║  ██║╚██████╔╝██║██████╔╝██║ ╚═╝ ██║╚██████╔╝███████╗███████╗
+   ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚══════╝
                                                                 
-                
+=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=
 """
     
     colors = [Fore.WHITE, Fore.LIGHTBLUE_EX, Fore.LIGHTCYAN_EX, Fore.CYAN, Fore.BLUE, Fore.LIGHTBLACK_EX]
@@ -87,6 +95,8 @@ def print_gradient_raidmole():
         else:
             color = colors[i % len(colors)]
         print(f"{color}{Style.BRIGHT}{line}")
+    log.start()
+
 print_gradient_raidmole()
 adb_check()
 device_check()
