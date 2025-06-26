@@ -3,6 +3,7 @@ import adbutils
 import time
 from colorama import Fore, Style, init
 from src import logger as log
+import sys
 
 def adb_check():
     log.log("ADB Check started")
@@ -96,6 +97,7 @@ def print_gradient_raidmole():
             color = colors[i % len(colors)]
         print(f"{color}{Style.BRIGHT}{line}")
     log.start()
+
 
 print_gradient_raidmole()
 adb_check()

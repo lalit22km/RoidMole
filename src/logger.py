@@ -15,7 +15,7 @@ def start():
         with open(file_path, 'w') as f:
             f.write(f"[{timestamp}]:DroidMole started\n")
 
-        print(f"📝 New report created: {file_path}")
+        print(f"📝 New log started: {file_path}")
 
     else:
         print("✅ 'reports' folder exists.")
@@ -23,7 +23,7 @@ def start():
         with open(file_path, 'w') as f:
             f.write(f"[{timestamp}]:DroidMole started\n")
 
-        print(f"📝 New report created: {file_path}")
+        print(f"📝 New log started: {file_path}")
 
 def log(log_data):
     with open(file_path, 'a') as f:
