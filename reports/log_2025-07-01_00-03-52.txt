@@ -1,0 +1,5 @@
+[2025-07-01_00-03-52]:DroidMole started
+[2025-07-01_00-03-52]:ADB Check started
+[2025-07-01_00-03-52]:ADB found on system
+[2025-07-01_00-03-52]:Start listening on localhost:5037
+[2025-07-01_00-03-52]:Device connected: RZ8N90JE2HZ ({'product': 'm51nsxx', 'model': 'SM_M515F', 'device': 'm51', 'transport_id': '4'})

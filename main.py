@@ -3,8 +3,12 @@ import adbutils
 import time
 from colorama import Fore, Style, init
 from src import logger as log
-import sys
-
+from src import state as state
+import os
+if os.name == 'nt':
+        _ = os.system('cls')
+else:
+        _ = os.system('clear')
 def adb_check():
     log.log("ADB Check started")
     try:
@@ -58,6 +62,7 @@ def device_check():
 
             if state == "device":
                 print(f"✅ Device connected: {serial} ({state})")
+                log.log(f"Device connected: {serial} ({info.tags})")
                 return info
 
             elif state == "unauthorized":
@@ -66,7 +71,8 @@ def device_check():
                     time.sleep(2)
                     updated_info = next((d for d in adb.list(extended=True) if d.serial == serial), None)
                     if updated_info and updated_info.state.lower() == "device":
-                        print(f"✅ Device authorized: {serial}")
+                        print(f"✅ Device authorized: {serial} ({state})")
+                        log.log(f"Device connected: {serial} ({info.tags})")
                         return updated_info
                     print(f"⏳ Waiting for authorization from {serial}...:P", end="\r")
 
@@ -102,3 +108,5 @@ def print_gradient_raidmole():
 print_gradient_raidmole()
 adb_check()
 device_check()
+print("\n\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+state.get_info()

@@ -1,0 +1,4 @@
+[2025-07-01_00-01-23]:DroidMole started
+[2025-07-01_00-01-23]:ADB Check started
+[2025-07-01_00-01-23]:ADB found on system
+[2025-07-01_00-01-23]:Start listening on localhost:5037
