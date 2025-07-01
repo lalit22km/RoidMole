@@ -1,3 +1,4 @@
+device_name = ""
 import subprocess
 import adbutils
 import time
