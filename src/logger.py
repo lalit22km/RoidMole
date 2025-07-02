@@ -27,4 +27,5 @@ def start():
 
 def log(log_data):
     with open(file_path, 'a') as f:
-        f.write(f"[{timestamp}]:{log_data}\n")
+        current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        f.write(f"[{current_time}]:{log_data}\n")

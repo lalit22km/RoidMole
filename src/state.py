@@ -26,10 +26,14 @@ prop_keys={"ro.product.device",
     }
 ro_list={}
 def get_info():
+    log.log("Starting props check..")
     for key in prop_keys:
         try:
             value = d.shell(f"getprop {key}").strip()
             ro_list[key] = value
+            log.log(f"Got prop {key}: {value}")
         except Exception as e:
-            log.error(f"Error getting prop {key}: {e}")
+            log.log(f"ERROR: getting prop {key}: {e}")
             ro_list[key] = None
+    main.clear()
+    main.print_gradient_raidmole()
