@@ -1,4 +1,4 @@
-`[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![RoidMole Logo](https://github.com/lalit22km/RoidMole/blob/main/RoidMole-logo.png?raw=true)
 
 ## A forensic tool for Android Devices
