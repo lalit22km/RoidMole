@@ -1,4 +1,5 @@
 device_name = ""
+android_version = 0
 import subprocess
 import adbutils
 import time
