@@ -1,5 +1,6 @@
 device_name = ""
 android_version = 0
+serial_no = ""
 import subprocess
 import adbutils
 import time
