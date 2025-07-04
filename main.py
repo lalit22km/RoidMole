@@ -5,6 +5,8 @@ import time
 from colorama import Fore, Style, init
 from src import logger as log
 from src import state as state
+from android import *
+import devices
 import os
 def clear():
     if os.name == 'nt':
@@ -112,3 +114,4 @@ adb_check()
 device_check()
 print("\n\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 state.get_info()
+devices.manaus.test()
