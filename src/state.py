@@ -1,6 +1,13 @@
+from os import name
 import adbutils as adb
 import main
+import pkgutil
+import importlib
+import devices
 from src import logger as log
+full_module_name = f"devices.{main.device_name}"
+for loader, module_name, is_pkg in pkgutil.iter_modules(devices.__path__):
+    importlib.import_module(f"devices.{module_name}")
 d = adb.device()
 prop_keys={"ro.product.device",
     "ro.product.model",
@@ -49,5 +56,46 @@ def get_info():
         main.serial_no=ro_list["ro.serialno"]
     main.clear()
     main.print_gradient_raidmole()
-    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n")
+    rooted = specific_checks()
+    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n | Rooted:{rooted}")
     print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+
+def specific_checks():
+    log.log("Starting specific checks..")
+    if main.device_name == "Unknown":
+        print("❌ Device name is unknown. Cannot perform specific checks.")
+        log.log("ERROR: Device name is unknown.")
+        return False
+    else:
+        try:
+            module = importlib.import_module(full_module_name)
+            if hasattr(module, "root_check"):
+                log.log(f"Root check for {main.device_name} completed. Rooted : {module.root_check()}")
+                return module.root_check()
+            else:
+                print(f"No 'check' function in {full_module_name}")
+                log.log(f"ERROR: No 'check' function in {full_module_name}")
+                return False
+        except ModuleNotFoundError:
+            print(f"No custom module found for {main.device_name}.")
+            log.log(f"ERROR: Module {main.device_name} not found.")
+            log.log("Using default root check logic.")
+            print("Using default root check logic.")
+            return generic_root_check()
+        
+def generic_root_check():
+    log.log("Using generic root check logic.")
+    try:
+        output = d.shell("su -c 'id'").strip()
+        if "uid=0" in output:
+            print("✅ Device is rooted")
+            log.log("Device is rooted")
+            return True
+        else:
+            print("❌ Device is not rooted")
+            log.log("Device is not rooted")
+            return False
+    except adb.AdbError as e:
+        print(f"❌ Error checking root: {e}")
+        log.log(f"ERROR: {e}")
+        return False
