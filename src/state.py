@@ -35,5 +35,19 @@ def get_info():
         except Exception as e:
             log.log(f"ERROR: getting prop {key}: {e}")
             ro_list[key] = None
+    if ro_list["ro.product.device"] == None:
+        main.device_name="Unknown"
+    else:
+        main.device_name=ro_list["ro.product.device"]
+    if ro_list["ro.build.version.release"] == None:
+        main.android_version="Unknown"
+    else:
+        main.android_version=ro_list["ro.build.version.release"]
+    if ro_list["ro.serialno"] == None:
+        main.serial_no="Unknown"
+    else:
+        main.serial_no=ro_list["ro.serialno"]
     main.clear()
     main.print_gradient_raidmole()
+    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n")
+    print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
