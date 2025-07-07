@@ -56,8 +56,8 @@ def get_info():
         main.serial_no=ro_list["ro.serialno"]
     main.clear()
     main.print_gradient_raidmole()
-    rooted = specific_checks()
-    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n | Rooted:{rooted}")
+    main.is_rooted = specific_checks()
+    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n | Rooted:{main.is_rooted}")
     print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 
 def specific_checks():
@@ -74,7 +74,9 @@ def specific_checks():
                 return module.root_check()
             else:
                 print(f"No 'check' function in {full_module_name}")
-                log.log(f"ERROR: No 'check' function in {full_module_name}")
+                log.log(f"ERROR: No 'check' function in {full_module_name}. Using generic root check logic.")
+                print("Using generic root check logic.")
+                generic_root_check()
                 return False
         except ModuleNotFoundError:
             print(f"No custom module found for {main.device_name}.")
