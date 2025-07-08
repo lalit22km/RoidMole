@@ -8,7 +8,6 @@ import time
 from colorama import Fore, Style, init
 from src import logger as log
 from src import state as state
-from android import *
 import devices
 import os
 
@@ -85,7 +84,7 @@ def device_check():
                     print(f"⏳ Waiting for authorization from {serial}...:P", end="\r")
 
         time.sleep(2)
-def print_gradient_raidmole():
+def print_gradient_raidmole(init_mode):
     init(autoreset=True)
     
     ascii_art = """
@@ -110,10 +109,13 @@ def print_gradient_raidmole():
         else:
             color = colors[i % len(colors)]
         print(f"{color}{Style.BRIGHT}{line}")
-    log.start()
+    if init_mode==True:
+        log.start()
+    else:
+        pass
+    
 
-
-print_gradient_raidmole()
+print_gradient_raidmole(True)
 adb_check()
 device_check()
 print("\n\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")

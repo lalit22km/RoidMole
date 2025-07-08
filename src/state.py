@@ -1,11 +1,9 @@
 from os import name
 import adbutils as adb
-import main
 import pkgutil
 import importlib
 import devices
 from src import logger as log
-full_module_name = f"devices.{main.device_name}"
 for loader, module_name, is_pkg in pkgutil.iter_modules(devices.__path__):
     importlib.import_module(f"devices.{module_name}")
 d = adb.device()
@@ -33,6 +31,7 @@ prop_keys={"ro.product.device",
     }
 ro_list={}
 def get_info():
+    import main
     log.log("Starting props check..")
     for key in prop_keys:
         try:
@@ -55,12 +54,14 @@ def get_info():
     else:
         main.serial_no=ro_list["ro.serialno"]
     main.clear()
-    main.print_gradient_raidmole()
+    main.print_gradient_raidmole(False)
     main.is_rooted = specific_checks()
-    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no}\n | Rooted:{main.is_rooted}")
+    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no} | Rooted:{main.is_rooted}")
     print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 
 def specific_checks():
+    import main
+    full_module_name = f"devices.{main.device_name}"
     log.log("Starting specific checks..")
     if main.device_name == "Unknown":
         print("❌ Device name is unknown. Cannot perform specific checks.")
@@ -80,7 +81,7 @@ def specific_checks():
                 return False
         except ModuleNotFoundError:
             print(f"No custom module found for {main.device_name}.")
-            log.log(f"ERROR: Module {main.device_name} not found.")
+            log.log(f"INFO: No custom module found for {main.device_name}.")
             log.log("Using default root check logic.")
             print("Using default root check logic.")
             return generic_root_check()

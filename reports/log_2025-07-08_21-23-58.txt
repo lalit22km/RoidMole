@@ -1,0 +1,59 @@
+[2025-07-08_21-23-58]:DroidMole started
+[2025-07-08_21-23-58]:ADB Check started
+[2025-07-08_21-23-58]:ADB found on system
+[2025-07-08_21-23-58]:Start listening on localhost:5037
+[2025-07-08_21-23-58]:Device connected: 782ec6fb ({'product': 'lineage_beryllium', 'model': 'POCO_F1', 'device': 'beryllium', 'transport_id': '1'})
+[2025-07-08_21-23-58]:Starting props check..
+[2025-07-08_21-23-58]:Got prop ro.board.platform: sdm845
+[2025-07-08_21-23-58]:Got prop ro.boot.flash.locked: 
+[2025-07-08_21-23-59]:Got prop ro.build.fingerprint: Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V12.0.3.0.QEJMIXM:user/release-keys
+[2025-07-08_21-23-59]:Got prop ro.boot.vbmeta.device_state: 
+[2025-07-08_21-23-59]:Got prop ro.build.display.id: lineage_beryllium-userdebug 15 BP1A.250505.005 7c21d79547
+[2025-07-08_21-23-59]:Got prop ro.product.first_api_level: 27
+[2025-07-08_21-23-59]:Got prop ro.build.type: userdebug
+[2025-07-08_21-23-59]:Got prop ro.build.version.release: 15
+[2025-07-08_21-23-59]:Got prop ro.product.device: beryllium
+[2025-07-08_21-23-59]:Got prop ro.product.manufacturer: Xiaomi
+[2025-07-08_21-23-59]:Got prop ro.hardware: qcom
+[2025-07-08_21-23-59]:Got prop ro.secure: 1
+[2025-07-08_21-23-59]:Got prop ro.build.version.sdk: 35
+[2025-07-08_21-23-59]:Got prop ro.build.tags: release-keys
+[2025-07-08_21-23-59]:Got prop ro.build.id: BP1A.250505.005
+[2025-07-08_21-23-59]:Got prop ro.serialno: 782ec6fb
+[2025-07-08_21-24-00]:Got prop ro.product.model: POCO F1
+[2025-07-08_21-24-00]:Got prop ro.debuggable: 1
+[2025-07-08_21-24-00]:Got prop ro.boot.verifiedbootstate: orange
+[2025-07-08_21-24-00]:Got prop ro.adb.secure: 1
+[2025-07-08_21-24-00]:Got prop ro.build.version.security_patch: 2025-06-01
+[2025-07-08_21-24-00]:Starting specific checks..
+[2025-07-08_21-24-00]:INFO: No custom module found for beryllium.
+[2025-07-08_21-24-00]:Using default root check logic.
+[2025-07-08_21-24-00]:Using generic root check logic.
+[2025-07-08_21-24-00]:Device is not rooted
+[2025-07-08_21-24-00]:Starting props check..
+[2025-07-08_21-24-00]:Got prop ro.board.platform: sdm845
+[2025-07-08_21-24-00]:Got prop ro.boot.flash.locked: 
+[2025-07-08_21-24-00]:Got prop ro.build.fingerprint: Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V12.0.3.0.QEJMIXM:user/release-keys
+[2025-07-08_21-24-00]:Got prop ro.boot.vbmeta.device_state: 
+[2025-07-08_21-24-00]:Got prop ro.build.display.id: lineage_beryllium-userdebug 15 BP1A.250505.005 7c21d79547
+[2025-07-08_21-24-00]:Got prop ro.product.first_api_level: 27
+[2025-07-08_21-24-00]:Got prop ro.build.type: userdebug
+[2025-07-08_21-24-01]:Got prop ro.build.version.release: 15
+[2025-07-08_21-24-01]:Got prop ro.product.device: beryllium
+[2025-07-08_21-24-01]:Got prop ro.product.manufacturer: Xiaomi
+[2025-07-08_21-24-01]:Got prop ro.hardware: qcom
+[2025-07-08_21-24-01]:Got prop ro.secure: 1
+[2025-07-08_21-24-01]:Got prop ro.build.version.sdk: 35
+[2025-07-08_21-24-01]:Got prop ro.build.tags: release-keys
+[2025-07-08_21-24-01]:Got prop ro.build.id: BP1A.250505.005
+[2025-07-08_21-24-01]:Got prop ro.serialno: 782ec6fb
+[2025-07-08_21-24-01]:Got prop ro.product.model: POCO F1
+[2025-07-08_21-24-01]:Got prop ro.debuggable: 1
+[2025-07-08_21-24-01]:Got prop ro.boot.verifiedbootstate: orange
+[2025-07-08_21-24-01]:Got prop ro.adb.secure: 1
+[2025-07-08_21-24-01]:Got prop ro.build.version.security_patch: 2025-06-01
+[2025-07-08_21-24-01]:Starting specific checks..
+[2025-07-08_21-24-01]:INFO: No custom module found for beryllium.
+[2025-07-08_21-24-01]:Using default root check logic.
+[2025-07-08_21-24-01]:Using generic root check logic.
+[2025-07-08_21-24-02]:Device is not rooted
