@@ -7,9 +7,8 @@ import adbutils
 import time
 from colorama import Fore, Style, init
 from src import logger as log
-from src import state as state
-import devices
 import os
+import json
 
 def clear():
     if os.name == 'nt':
@@ -84,7 +83,7 @@ def device_check():
                     print(f"⏳ Waiting for authorization from {serial}...:P", end="\r")
 
         time.sleep(2)
-def print_gradient_raidmole(init_mode):
+def print_gradient_raidmole(report_id,init_mode):
     init(autoreset=True)
     
     ascii_art = """
@@ -110,13 +109,15 @@ def print_gradient_raidmole(init_mode):
             color = colors[i % len(colors)]
         print(f"{color}{Style.BRIGHT}{line}")
     if init_mode==True:
-        log.start()
+        log.start(report_id)
     else:
         pass
     
 
-print_gradient_raidmole(True)
+report_id = input("Enter report ID = ")
+print_gradient_raidmole(report_id,True)
 adb_check()
 device_check()
 print("\n\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+from src import state as state
 state.get_info()

@@ -1,0 +1,4 @@
+[2025-07-09_14-10-27]:RoidMole started
+[2025-07-09_14-10-28]:ADB Check started
+[2025-07-09_14-10-28]:ADB found on system
+[2025-07-09_14-10-28]:Start listening on localhost:5037
