@@ -3,7 +3,9 @@ import adbutils as adb
 import pkgutil
 import importlib
 import devices
+import json
 from src import logger as log
+
 for loader, module_name, is_pkg in pkgutil.iter_modules(devices.__path__):
     importlib.import_module(f"devices.{module_name}")
 d = adb.device()
@@ -41,29 +43,31 @@ def get_info():
         except Exception as e:
             log.log(f"ERROR: getting prop {key}: {e}")
             ro_list[key] = None
+    with open("props.json", "w") as f:
+        json.dump(ro_list, f, indent=4)
     if ro_list["ro.product.device"] == None:
-        main.device_name="Unknown"
+        ro_list["ro.product.device"]="Unknown"
     else:
-        main.device_name=ro_list["ro.product.device"]
+        pass
     if ro_list["ro.build.version.release"] == None:
-        main.android_version="Unknown"
+        ro_list["ro.build.version.release"]="Unknown"
     else:
-        main.android_version=ro_list["ro.build.version.release"]
+        pass
     if ro_list["ro.serialno"] == None:
-        main.serial_no="Unknown"
+        ro_list["ro.serialno"]="Unknown"
     else:
-        main.serial_no=ro_list["ro.serialno"]
+        pass
     main.clear()
     main.print_gradient_raidmole(False)
     main.is_rooted = specific_checks()
-    print(f"Model:{main.device_name} | Android Version:{main.android_version} | Serial:{main.serial_no} | Rooted:{main.is_rooted}")
+    print(f"Model:{ro_list['ro.product.device']} | Android Version:{ro_list['ro.build.version.release']} | Serial:{ro_list['ro.serialno']} | Rooted:{main.is_rooted}")
     print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 
 def specific_checks():
     import main
-    full_module_name = f"devices.{main.device_name}"
+    full_module_name = f"devices.{ro_list['ro.product.device']}"
     log.log("Starting specific checks..")
-    if main.device_name == "Unknown":
+    if ro_list['ro.product.device'] == "Unknown":
         print("❌ Device name is unknown. Cannot perform specific checks.")
         log.log("ERROR: Device name is unknown.")
         return False
@@ -71,7 +75,7 @@ def specific_checks():
         try:
             module = importlib.import_module(full_module_name)
             if hasattr(module, "root_check"):
-                log.log(f"Root check for {main.device_name} completed. Rooted : {module.root_check()}")
+                log.log(f"Root check for {ro_list['ro.product.device']} completed. Rooted : {module.root_check()}")
                 return module.root_check()
             else:
                 print(f"No 'check' function in {full_module_name}")
@@ -80,8 +84,8 @@ def specific_checks():
                 generic_root_check()
                 return False
         except ModuleNotFoundError:
-            print(f"No custom module found for {main.device_name}.")
-            log.log(f"INFO: No custom module found for {main.device_name}.")
+            print(f"No custom module found for {ro_list['ro.product.device']}.")
+            log.log(f"INFO: No custom module found for {ro_list['ro.product.device']}.")
             log.log("Using default root check logic.")
             print("Using default root check logic.")
             return generic_root_check()

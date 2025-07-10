@@ -8,8 +8,6 @@ import time
 from colorama import Fore, Style, init
 from src import logger as log
 import os
-import json
-
 def clear():
     if os.name == 'nt':
             _ = os.system('cls')
