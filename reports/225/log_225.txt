@@ -1,0 +1,31 @@
+[2025-07-11_12-03-54]:RoidMole started
+[2025-07-11_12-03-55]:ADB Check started
+[2025-07-11_12-03-55]:ADB found on system
+[2025-07-11_12-03-55]:Start listening on localhost:5037
+[2025-07-11_12-04-10]:Device connected: ZD222G9HL5 ({'product': 'manaus_g_sys', 'model': 'motorola_edge_40_neo', 'device': 'manaus', 'transport_id': '2'})
+[2025-07-11_12-04-10]:Starting props check..
+[2025-07-11_12-04-10]:Got prop ro.build.id: U1TMS34.107-34-9-3-4
+[2025-07-11_12-04-10]:Got prop ro.build.version.security_patch: 2025-06-01
+[2025-07-11_12-04-10]:Got prop ro.boot.flash.locked: 0
+[2025-07-11_12-04-10]:Got prop ro.boot.vbmeta.device_state: unlocked
+[2025-07-11_12-04-10]:Got prop ro.hardware: mt6879
+[2025-07-11_12-04-10]:Got prop ro.build.display.id: U1TMS34.107-34-9-3-4
+[2025-07-11_12-04-10]:Got prop ro.build.tags: release-keys
+[2025-07-11_12-04-10]:Got prop ro.product.first_api_level: 33
+[2025-07-11_12-04-10]:Got prop ro.product.device: manaus
+[2025-07-11_12-04-10]:Got prop ro.build.version.release: 14
+[2025-07-11_12-04-10]:Got prop ro.board.platform: mt6879
+[2025-07-11_12-04-10]:Got prop ro.boot.verifiedbootstate: orange
+[2025-07-11_12-04-10]:Got prop ro.serialno: ZD222G9HL5
+[2025-07-11_12-04-10]:Got prop ro.debuggable: 0
+[2025-07-11_12-04-11]:Got prop ro.build.type: user
+[2025-07-11_12-04-11]:Got prop ro.adb.secure: 1
+[2025-07-11_12-04-11]:Got prop ro.build.version.sdk: 34
+[2025-07-11_12-04-11]:Got prop ro.build.fingerprint: motorola/manaus_g_sys/manaus:14/U1TMS34.107-34-9-3-4/7f92b-768ae9:user/release-keys
+[2025-07-11_12-04-11]:Got prop ro.secure: 1
+[2025-07-11_12-04-11]:Got prop ro.product.model: motorola edge 40 neo
+[2025-07-11_12-04-11]:Got prop ro.product.manufacturer: motorola
+[2025-07-11_12-04-11]:Starting specific checks..
+[2025-07-11_12-04-11]:ERROR: No 'check' function in devices.manaus. Using generic root check logic.
+[2025-07-11_12-04-11]:Using generic root check logic.
+[2025-07-11_12-04-11]:Device is not rooted

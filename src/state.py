@@ -33,7 +33,7 @@ prop_keys={"ro.product.device",
     }
 data={}
 def get_info():
-    import main
+    #import main
     log.log("Starting props check..")
     for key in prop_keys:
         try:
@@ -59,13 +59,12 @@ def get_info():
     data["is_rooted"] = specific_checks()
     with open("props.json", "w") as f:
         json.dump(data, f, indent=4)
-    main.clear()
-    main.print_gradient_raidmole(False)
+    #main.clear()
+    #main.print_gradient_raidmole(False)
     print(f"Model:{data['ro.product.device']} | Android Version:{data['ro.build.version.release']} | Serial:{data['ro.serialno']} | Rooted:{data['is_rooted']}")
     print("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 
 def specific_checks():
-    import main
     full_module_name = f"devices.{data['ro.product.device']}"
     log.log("Starting specific checks..")
     if data['ro.product.device'] == "Unknown":
@@ -80,7 +79,7 @@ def specific_checks():
                 return module.root_check()
             else:
                 print(f"No 'check' function in {full_module_name}")
-                log.log(f"ERROR: No 'check' function in {full_module_name}. Using generic root check logic.")
+                log.log(f"INFO: No 'check' function in {full_module_name}. Using generic root check logic.")
                 print("Using generic root check logic.")
                 generic_root_check()
                 return False
