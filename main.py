@@ -1,7 +1,3 @@
-device_name = ""
-android_version = 0
-serial_no = ""
-is_rooted = False
 import subprocess
 import adbutils
 import time
