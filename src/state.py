@@ -1,4 +1,3 @@
-from os import name
 import adbutils as adb
 import pkgutil
 import importlib

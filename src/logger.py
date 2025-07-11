@@ -1,5 +1,4 @@
 # This script handles generating logs. If you're contributing in custom device scripts or any other code, please make sure to use this to be as verbose as much as possible.
-import os
 from pathlib import Path
 from datetime import datetime
 

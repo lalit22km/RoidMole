@@ -42,7 +42,7 @@ def adb_check():
         exit()
     except subprocess.CalledProcessError as e:
         print("❌ ADB command failed !\nADB is installed but produces error(s). Make sure ADB is updated.\nGet the latest binaries from https://developer.android.com/tools/releases/platform-tools")
-        log.log("ERROR: ADB might be installed but produces error(s).")
+        log.log(f"ERROR: ADB might be installed but produces error(s).{e.stderr}")
         exit()
 def device_check():
     adb = adbutils.AdbClient(host="127.0.0.1", port=5037)
