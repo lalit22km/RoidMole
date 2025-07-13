@@ -112,6 +112,6 @@ report_id = input("Enter report ID = ")
 print_gradient_raidmole(report_id,True)
 adb_check()
 device_check()
-print("\n\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
+print("\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 from src import state as state
 state.get_info()
