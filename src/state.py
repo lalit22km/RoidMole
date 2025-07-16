@@ -31,7 +31,7 @@ prop_keys={"ro.product.device",
     "ro.product.first_api_level"
     }
 data={}
-def get_info():
+def get_info(report_id):
     #import main
     log.log("Starting props check..")
     for key in prop_keys:
@@ -56,7 +56,14 @@ def get_info():
     else:
         pass
     data["is_rooted"] = specific_checks()
-    with open("props.json", "w") as f:
+    from pathlib import Path
+    import os
+    root_dir = Path(__file__).resolve().parent.parent
+    report_folder = root_dir / 'reports' / str(report_id)
+    if not report_folder.exists():
+        report_folder.mkdir(parents=True)
+    json_path = report_folder / "props.json"
+    with open(json_path, "w") as f:
         json.dump(data, f, indent=4)
     #main.clear()
     #main.print_gradient_raidmole(False)

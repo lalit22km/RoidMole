@@ -114,4 +114,4 @@ adb_check()
 device_check()
 print("\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=")
 from src import state as state
-state.get_info()
+state.get_info(report_id)
