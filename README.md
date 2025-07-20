@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/27af8af7d9344759b38a195271989a9b)](https://app.codacy.com/gh/lalit22km/RoidMole/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![RoidMole Logo](https://github.com/lalit22km/RoidMole/blob/main/RoidMole-logo.png?raw=true)
 
 ## A forensic tool for Android Devices
