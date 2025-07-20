@@ -74,7 +74,7 @@ def specific_checks():
     full_module_name = f"devices.{data['ro.product.device']}"
     log.log("Starting specific checks..")
     if data['ro.product.device'] == "Unknown":
-        print("❌ Device name is unknown. Cannot perform specific checks.")
+        print("Device name is unknown. Cannot perform specific checks.")
         log.log("ERROR: Device name is unknown.")
         return False
     else:
