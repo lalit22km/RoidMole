@@ -3,7 +3,6 @@ import adbutils
 import time
 from colorama import Fore, Style, init
 from src import logger as log
-import os
 def clear():
     print("\033[2J\033[H", end='')
 def adb_check():
