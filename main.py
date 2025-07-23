@@ -5,10 +5,7 @@ from colorama import Fore, Style, init
 from src import logger as log
 import os
 def clear():
-    if os.name == 'nt':
-            _ = os.system('cls')
-    else:
-            _ = os.system('clear')
+    print("\033[2J\033[H", end='')
 def adb_check():
     log.log("ADB Check started")
     try:
